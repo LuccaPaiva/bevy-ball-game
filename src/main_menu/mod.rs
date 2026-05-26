@@ -23,7 +23,3 @@ impl Plugin for MainMenu {
         app.add_systems(OnExit(AppState::MainMenu), despawn_main_menu);
     }
 }
-
-pub fn main_menu() {
-    println!("You are on the main menu.");
-}
