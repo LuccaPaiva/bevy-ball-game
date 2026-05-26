@@ -6,7 +6,7 @@ mod main_menu;
 mod systems;
 
 use game::GamePlugin;
-use main_menu::MainMenuPlugin;
+use main_menu::MainMenu;
 
 use events::*;
 use systems::*;
@@ -19,7 +19,7 @@ fn main() {
         .init_state::<AppState>()
         // My plugins
         .add_plugins(GamePlugin)
-        .add_plugins(MainMenuPlugin)
+        .add_plugins(MainMenu)
         //Messages
         .add_message::<GameOver>()
         // Startup systems
