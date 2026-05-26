@@ -2,8 +2,6 @@ use bevy::prelude::*;
 use bevy::window::PrimaryWindow;
 use rand::random;
 
-use crate::AppState;
-
 use super::components::*;
 use super::resources::*;
 use super::{ENEMY_SIZE, ENEMY_SPEED, NUMBER_OF_ENEMIES};
@@ -20,7 +18,6 @@ pub fn spawn_enemies(
         let random_y = random::<f32>() * window.height();
 
         commands.spawn((
-            DespawnOnExit(AppState::Game),
             Sprite {
                 image: asset_server.load("sprites/ball_red_large.png"),
                 ..default()
@@ -30,6 +27,12 @@ pub fn spawn_enemies(
                 direction: Vec2::new(random::<f32>(), random::<f32>()).normalize(),
             },
         ));
+    }
+}
+
+pub fn despawn_enemies(mut commands: Commands, enemy_query: Query<Entity, With<Enemy>>) {
+    for enemy_entity in enemy_query.iter() {
+        commands.entity(enemy_entity).despawn();
     }
 }
 
@@ -200,7 +203,6 @@ pub fn spawn_enemies_over_time(
         let random_y = random::<f32>() * window.height();
 
         commands.spawn((
-            DespawnOnExit(AppState::Game),
             Sprite {
                 image: asset_server.load("sprites/ball_red_large.png"),
                 ..default()

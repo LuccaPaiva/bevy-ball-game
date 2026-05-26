@@ -1,3 +1,6 @@
+use bevy::prelude::App;
+use bevy::prelude::*;
+
 pub mod enemy;
 mod player;
 pub mod score;
@@ -10,34 +13,29 @@ use score::ScorePlugin;
 use star::StarPlugin;
 use systems::*;
 
-use bevy::prelude::*;
-
-use crate::AppState;
-use crate::events::GameOver;
+use crate::{AppStates, events::*};
 
 pub struct GamePlugin;
 
 impl Plugin for GamePlugin {
     fn build(&self, app: &mut App) {
-        // Events
-        app.add_message::<GameOver>();
-        // States
         app.init_state::<SimulationState>();
-        // OnEnter Systems
-        app.add_systems(OnEnter(AppState::Game), pause_simulation);
-        // My Plugins
+        app.add_systems(OnEnter(AppStates::Game), pause_simulation);
+        //app.add_plugins((EnemyPlugin, PlayerPlugin, ScorePlugin, StarPlugin));
         app.add_plugins(EnemyPlugin);
         app.add_plugins(PlayerPlugin);
         app.add_plugins(ScorePlugin);
         app.add_plugins(StarPlugin);
-        // Systems
-        app.add_systems(Update, toggle_simulation.run_if(in_state(AppState::Game)));
-        // Exit State Systems
-        //app.add_systems(OnExit(AppState::Game), resume_simulation);
+        app.add_message::<GameOver>();
+        app.add_systems(Update, toggle_simulation.run_if(in_state(AppStates::Game)));
+        //app.add_systems(OnExit(AppStates::Game), resume_simulation);
+        //app.add_systems(OnEnter(SimulationState::Running), resume_simulation);
+        //app.add_systems(OnEnter(SimulationState::Paused), pause_simulation);
     }
 }
 
 #[derive(States, Debug, Clone, Copy, Eq, PartialEq, Hash, Default)]
+
 pub enum SimulationState {
     Running,
     #[default]

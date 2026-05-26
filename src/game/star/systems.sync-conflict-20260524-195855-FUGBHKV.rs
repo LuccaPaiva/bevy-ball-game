@@ -2,6 +2,8 @@ use bevy::prelude::*;
 use bevy::window::PrimaryWindow;
 use rand::random;
 
+use crate::AppStates;
+
 use super::components::*;
 use super::resources::*;
 
@@ -28,6 +30,7 @@ pub fn spawn_stars(
         random_y = random_y.clamp(y_min, y_max);
 
         commands.spawn((
+            DespawnOnExit(AppStates::Game),
             Sprite {
                 image: asset_server.load("sprites/star.png"),
                 ..default()
@@ -61,6 +64,7 @@ pub fn spawn_stars_over_time(
         let random_y = random::<f32>() * window.height();
 
         commands.spawn((
+            DespawnOnExit(AppStates::Game),
             Sprite {
                 image: asset_server.load("sprites/star.png"),
                 ..default()
@@ -81,11 +85,5 @@ pub fn spawn_stars_over_time(
             Transform::from_xyz(random_x, random_y, 0.0),
             Star {},
         ));
-    }
-}
-
-pub fn despawn_stars(mut commands: Commands, star_query: Query<Entity, With<Star>>) {
-    for star_entity in star_query.iter() {
-        commands.entity(star_entity).despawn();
     }
 }

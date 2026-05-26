@@ -3,7 +3,7 @@ use bevy::window::PrimaryWindow;
 
 use super::components::Player;
 
-use crate::AppState;
+use crate::AppStates;
 use crate::events::GameOver;
 use crate::game::enemy::ENEMY_SIZE;
 use crate::game::enemy::components::*;
@@ -22,7 +22,7 @@ pub fn spawn_player(
     let window = window_query.single().unwrap();
 
     commands.spawn((
-        DespawnOnExit(AppState::Game),
+        DespawnOnExit(AppStates::Game),
         Sprite {
             image: asset_server.load("sprites/ball_blue_large.png"),
             ..default()
@@ -30,6 +30,7 @@ pub fn spawn_player(
         Transform::from_xyz(window.width() / 2.0, window.height() / 2.0, 0.0),
         Player {},
     ));
+    println!("Player Created!");
 }
 
 pub fn player_movement(
