@@ -1,16 +1,91 @@
-Projeto copiando https://www.youtube.com/watch?v=izhFutJiZgo&list=PLVnntJRoP85JHGX7rGDu6LaF3fmDDbqyd&index=2
+# Bevy Ball Game (Bevy 0.18 Port)
 
-Usando assets de:
-- https://www.kenney.nl/assets/sci-fi-sounds
-- https://www.kenney.nl/assets/impact-sounds
-- https://www.kenney.nl/assets/interface-sounds
-- https://www.kenney.nl/assets/rolling-ball-assets
+A simple 3D ball game built with the Rust game engine **Bevy**.
 
-No original, o autor separa confine_enemy_movement, update_enemy_direction e enemy_movement em funcoes separadas.
-Mas eu achei melhor juntar tudo na move_direct_confine_enemies pq acho que dava uns bugs de concorrencia, do objeto andar e mudar de direção, ai ele ficava "flicando" nas paredes. Parece ter resolvido.
+This project started from the excellent tutorial series by Frederick Joubert and was later migrated and updated to work with **Bevy 0.18**, adapting the codebase to the latest engine APIs and architectural changes.
+
+## Project Overview
+
+The goal of this project was to gain hands-on experience with:
+
+* Rust programming
+* ECS (Entity Component System) architecture
+* Game development concepts
+* Physics and collision handling
+* Input systems
+* Camera control
+* Migration and maintenance of existing codebases
+
+Rather than creating a game from scratch, the focus was on understanding an existing project and successfully updating it to a newer version of Bevy while preserving functionality.
+
+## What I Worked On
+
+### Bevy 0.18 Migration
+
+The original project was developed for an older version of Bevy. This repository contains a complete migration to Bevy 0.18, including updates required by API and engine changes.
+
+Key tasks included:
+
+* Updating deprecated APIs
+* Adapting system registration to the newer scheduling model
+* Updating component and resource handling
+* Resolving breaking changes introduced between Bevy releases
+* Refactoring code where required to align with current Bevy patterns
+
+### Learning Objectives
+
+Through this project I explored:
+
+* Rust ownership and borrowing concepts
+* ECS-based software architecture
+* Event-driven programming
+* State management
+* Modular code organization
+* Debugging and troubleshooting during framework upgrades
+
+## Technologies
+
+* Rust
+* Bevy 0.18
+* ECS (Entity Component System)
+
+## Running the Project
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+cd <repository-name>
+```
+
+Run:
+
+```bash
+cargo run
+```
+
+## Screenshots
+
+*Add screenshots or gameplay GIFs here.*
+
+## Future Improvements
+
+Potential future enhancements include:
+
+* Improved game mechanics
+* UI and HUD improvements
+* Audio effects
+* Additional levels
+* Performance optimizations
+* Automated testing where applicable
+
+## Acknowledgements
+
+Original tutorial and project inspiration:
+https://github.com/frederickjjoubert/bevy-ball-game
+
+Frederick Joubert's Bevy Ball Game tutorial series:
+https://taintedcoders.com/bevy/how-to/use-app-state
 
 
-
-Referencias
-
-Estados: https://taintedcoders.com/bevy/how-to/use-app-state
+This repository is an independent learning project and Bevy 0.18 migration effort created for educational and portfolio purposes.
