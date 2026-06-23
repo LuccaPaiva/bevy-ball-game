@@ -4,6 +4,9 @@ A simple 3D ball game built with the Rust game engine **Bevy**.
 
 This project started from the excellent tutorial series by Frederick Joubert and was later migrated and updated to work with **Bevy 0.18**, adapting the codebase to the latest engine APIs and architectural changes.
 
+
+<img width="800" height="447" alt="bevy-ball-game-gif" src="https://github.com/user-attachments/assets/ba6e9a00-c821-42e6-b40f-e8d9f2ece34d" />
+
 ## Project Overview
 
 The goal of this project was to gain hands-on experience with:
@@ -65,8 +68,19 @@ cargo run
 ```
 
 ## Screenshots
+Main Game
 
-*Add screenshots or gameplay GIFs here.*
+<img width="800" height="447" alt="bevy-ball-game-gif" src="https://github.com/user-attachments/assets/ba6e9a00-c821-42e6-b40f-e8d9f2ece34d" />
+
+
+Main Menu
+
+<img width="482" height="311" alt="image" src="https://github.com/user-attachments/assets/6f96f3b6-3cc4-41d8-8ef2-6df623fcedf6" />
+
+Game Over
+
+<img width="482" height="473" alt="image" src="https://github.com/user-attachments/assets/a9c2263a-0b17-4280-a52c-9a0d119c316d" />
+
 
 ## Future Improvements
 
